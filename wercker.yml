@@ -39,4 +39,4 @@ deploy:
     - script:
         name: upload to deploygate
         code: |
-          curl -F file=@unittest/build/outputs/apk/app-release.apk -F token="$DEPLOYGATE_API_KEY" https://deploygate.com/api/users/yamaashiro/apps
+          curl -F file=@unittest/build/outputs/apk/app-release.apk -F token="$DEPLOYGATE_API_KEY" https://deploygate.com/api/users/yamaashiro-s/apps
