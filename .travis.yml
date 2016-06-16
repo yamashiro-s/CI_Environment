@@ -1,9 +1,11 @@
 language: android
 android:
   components:
-    - platform-tools
+    # The BuildTools version used by your project
     - build-tools-24.0.0
+
+    # The SDK version used to compile your project
     - android-23
 
-script:
-   - ./gradlew build connectedCheck
+    # Use extra android repo locations to find the support library etc...
+    - extra
