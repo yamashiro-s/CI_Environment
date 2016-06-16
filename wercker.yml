@@ -1,42 +1,18 @@
-# This references a standard debian container from the
-# Docker Hub https://registry.hub.docker.com/_/debian/
-# Read more about containers on our dev center
-# http://devcenter.wercker.com/docs/containers/index.html
-box: wercker/android
-# You can also use services such as databases. Read more on our dev center:
-# http://devcenter.wercker.com/docs/services/index.html
-# services:
-    # - postgres
-    # http://devcenter.wercker.com/docs/services/postgresql.html
-
-    # - mongo
-    # http://devcenter.wercker.com/docs/services/mongodb.html
-
-# This is the build pipeline. Pipelines are the core of wercker
-# Read more about pipelines on our dev center
-# http://devcenter.wercker.com/docs/pipelines/index.html
-build:
-    # Steps make up the actions in your pipeline
-    # Read more about steps on our dev center:
-    # http://devcenter.wercker.com/docs/steps/index.html
-  steps:
-    - android-sdk-update:
-        filter: sysimg-18
-    - script:
-        name: run gradle
-        code: |
-          gradle --full-stacktrace -q --project-cache-dir=$WERCKER_CACHE_DIR build
-  after-steps:
-    # Use the build results
-    - script:
-        name: inspect build result
-        code: |
-          pwd
-          ls -la ./unittest/build/outputs/apk
-          cp ./unittest/build/outputs/apk/*.apk $WERCKER_REPORT_ARTIFACTS_DIR
-deploy:
-  steps:
-    - script:
-        name: upload to deploygate
-        code: |
-          curl -F file=@unittest/build/outputs/apk/app-release.apk -F token="$DEPLOYGATE_API_KEY" https://deploygate.com/api/users/yamaashiro-s/apps
+box : wercker/android
+ # Build definition
+ build :
+   # The steps that will be executed on build
+   steps :
+     - script :
+         name : show base information
+         code : |
+           gradle -v
+           echo $ANDROID_HOME
+           echo $ANDROID_SDK_VERSION
+           echo $ANDROID_BUILD_TOOLS
+           echo $ANDROID_UPDATE_FILTER
+     # A step that executes `gradle build` command
+     - script :
+         name : run gradle
+         code : |
+           gradle --full-stacktrace -q --project-cache-dir=$WERCKER_CACHE_DIR build
