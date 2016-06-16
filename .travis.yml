@@ -1,1 +1,14 @@
 language : android
+
+android:
+  components:
+    - android-22
+    - build-tools-22.0.1
+    - extra-google-google_play_services
+    - extra-android-support
+    - extra-android-m2repository
+    - extra-google-m2repository
+    - sys-img-armeabi-v7a-android-21
+
+script:
+  - ./gradlew clean connectedAndroidTest
