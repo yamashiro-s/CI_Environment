@@ -1,4 +1,4 @@
-box: wercker/android@2.0.0
+box: tomorrowkey/wercker-container-android
 
 build:
   step:
