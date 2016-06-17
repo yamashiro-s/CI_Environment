@@ -9,4 +9,5 @@ android:
   licenses:
     - android-sdk-license-bcbbd656
 script:
+    - chmod +x gradlew
     - ./gradlew build test
