@@ -1,10 +1,12 @@
 language: android
 
-before_install:
-    - export TERM=dumb # to get clean gradle output
-    - export ANDROID_TARGET=android-23
-    # setup and run the Android emulator
-    - android list targets # for debugging
-    - chmod +x gradlew
+android:
+  components:
+    - build-tools-24.0.0
+    - android-19
+    - sysimg-19
+    - extra-android-support
+  licenses:
+    - android-sdk-license-bcbbd656
 script:
     - ./gradlew build test
