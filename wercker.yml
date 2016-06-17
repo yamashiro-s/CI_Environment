@@ -1,6 +1,5 @@
 build:
   step:
     - script:
-      name: build
-      code: |
-        gradlew
+        name: build
+        code: gradlew
