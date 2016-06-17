@@ -1,7 +1,2 @@
 box: wercker/android
 
-build:
-  step:
-    - script:
-        name: build
-        code: gradlew
