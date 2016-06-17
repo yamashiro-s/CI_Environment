@@ -1,13 +1,8 @@
 language: android
 
-android:
-    components:
-        - build-tools-24.0.0
-
 before_install:
     - export TERM=dumb # to get clean gradle output
-    - export ANDROID_TARGET=android-19
-    - export 
+    - export ANDROID_TARGET=android-23
     # setup and run the Android emulator
     - android list targets # for debugging
     - chmod +x gradlew
