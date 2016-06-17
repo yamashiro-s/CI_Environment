@@ -1,7 +1,14 @@
-box : wercker/android
+box: wercker/android
 
 build:
   step:
+    - script:
+        name: show base information
+        code: |
+          gradle -v
+          echo $ANDROID_HOME
+          echo $ANDROID_BUILD_TOOLS
+          echo $ANDROID_UPDATE_FILTER
     - script:
       name: chmod gradle
       code: chmod +x gradlew
