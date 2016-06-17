@@ -1,1 +1,10 @@
 box : wercker/android
+
+build:
+  step:
+    - script:
+      name: chmod gradle
+      code: chmod +x gradlew
+    - script:
+      name: build gradle
+      code: ./gradlew build test
