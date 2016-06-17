@@ -20,8 +20,14 @@ public class MainActivityTest {
 
     @Test
     public void 年齢テスト() throws Exception {
+        // Person クラスをモックしたインスタンス p を生成する。
         Person p = mock(Person.class);
+
+        // getAge() が呼ばれた場合、 21 を返すように設定する。
         when( p.getAge()).thenReturn(21);
+
+        // mock が正常であれば、 new も setSge() も読んでいない p が
+        // getAge() で 21 を返す。
         assertThat(p.getAge()).isEqualTo(new Person("Yamashiro", 21).getAge());
     }
 
