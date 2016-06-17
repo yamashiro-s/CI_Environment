@@ -1,11 +1,6 @@
-language: android
-android:
-  components:
-    # The BuildTools version used by your project
-    - build-tools-24.0.0
-
-    # The SDK version used to compile your project
-    - android-23
-
-    # Use extra android repo locations to find the support library etc...
-    - extra
+build:
+  step:
+    - script:
+      name: build
+      code: |
+        gradlew
