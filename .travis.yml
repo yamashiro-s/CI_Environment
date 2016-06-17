@@ -8,4 +8,8 @@ before_install:
     - emulator -avd test -no-skin -no-audio -no-window &
     - curl -L https://raw.githubusercontent.com/embarkmobile/android-sdk-installer/master/wait_for_emulator | bash
 script:
+<<<<<<< HEAD
     - gradlew
+=======
+    - ./gradlew
+>>>>>>> ed8b1d8c56efa0843eea97b3713f81c003ebbf3e
