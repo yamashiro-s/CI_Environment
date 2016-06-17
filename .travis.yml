@@ -2,7 +2,7 @@ language: android
 
 android:
     components:
-        build-tools-24.0.0
+        - build-tools-24.0.0
 
 before_install:
     - export TERM=dumb # to get clean gradle output
