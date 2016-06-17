@@ -9,4 +9,4 @@ before_install:
     - curl -L https://raw.githubusercontent.com/embarkmobile/android-sdk-installer/master/wait_for_emulator | bash
     - chmod +x gradlew
 script:
-    - ./gradlew
+    - ./gradlew build test
