@@ -15,3 +15,11 @@ build:
     - script:
       name: build gradle
       code: ./gradlew build test
+　after-steps:
+    # Use the build results
+    - script:
+      　name: inspect build result
+        code: |
+          pwd
+          ls -la ./app/build/outputs/
+          cp -r ./app/build/outputs/* ${WERCKER_REPORT_ARTIFACTS_DIR}
